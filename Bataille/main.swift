@@ -7,8 +7,6 @@
 
 import Foundation
 
-let game = Game(numberOfCharacters: 2)
+let game = Game(numberOfPlayers: 2)
 
 game.start()
-
-

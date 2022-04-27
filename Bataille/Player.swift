@@ -7,13 +7,11 @@
 
 import Foundation
 
-class Player: CharacterProtocol {
+class Player: PlayerProtocol {
     var cardsInHands: [CardProtocol]
     var name: String
-    let ui: UIProtocol
 
-    init (_ ui: UIProtocol = Console(), name: String) {
-        self.ui = ui
+    init (name: String) {
         self.name = name
         self.cardsInHands = []
     }

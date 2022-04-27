@@ -11,35 +11,97 @@ class Game: GameProtocol {
 
     var endOfGame = false
     let ui : UIProtocol
-    var characters: [CharacterProtocol]
+    var players: [PlayerProtocol]
     var dealer: DealerProtocol
 
-    init (numberOfCharacters : Int, numberOfCards: Int = 52, ui: UIProtocol = Console()) {
+    init (numberOfPlayers : Int, numberOfCards: Int = 52, ui: UIProtocol = Console()) {
         self.ui = ui
-        self.dealer = Dealer(deck: Deck(maximumCards: numberOfCards))
-        self.characters = []
-        initCharacters(numberOfCharacters)
+        self.players = []
+        self.dealer = Dealer(deck: Deck())
+        self.initPlayers(numberOfPlayers)
     }
 
-    func initCharacters (_ numberOfCharacters: Int) {
-        for id in 0..<numberOfCharacters {
-            ui.display("What's the name of character n° \(id + 1) ?")
+    func initPlayers (_ numberOfPlayers: Int) {
+        for id in 0..<numberOfPlayers {
+            ui.display("What's the name of player n° \(id + 1) ?")
             var inputName = ui.input()
-            while (characters.contains { $0.name == inputName }) { inputName = self.ui.input() }
-            characters.append(Character(name: inputName))
+            while (players.contains { $0.name == inputName } || inputName.isEmpty) { inputName = ui.input() }
+            players.append(Player(name: "Player \(id+1)) " + inputName))
+        }
+        
+        listPlayers()
+    }
+
+    func start() {
+        while endOfGame == false {
+            var options = ["Show the game & players", "Quit"]
+            if dealer.readyToPlay {
+                options.insert("Next round", at: 0)
+            } else {
+                options.insert("Distribute cards", at: 0)
+            }
+            let choice = ui.options(options)
+            switch choice {
+                case 1:
+                    nextRound()
+                case 2:
+                    listPlayers()
+                    start()
+                case 3:
+                    return quitGame()
+                default: break
+            }
+            checkWinnerExists()
         }
     }
 
-    public func start() {
+    func nextRound () {
+        if dealer.readyToPlay {
+            dealer.nextRound()
+        } else {
+            distributeCards()
+        }
+    }
+
+    func checkWinnerExists () {
+        for player in players {
+            if player.cardsInHands.isEmpty {
+                quitGame()
+                return
+            }
+        }
+    }
+
+    func listPlayers () {
+        let totalCard = dealer.deck.availableCards.count + dealer.deck.distributedCards.count
+        ui.display("\nGame started with \(totalCard) cards, and \(players.count) players:")
+        for player in players {
+            ui.display("--- \(player.name) has actually \(player.cardsInHands.count) cards :")
+            if player.cardsInHands.isEmpty == false {
+                ui.display(player.cardsInHands.map { $0.description }.joined(separator: ", ") )
+            }
+        }
+    }
+
+    func distributeCards () {
         ui.display("\n##############")
-        ui.display("Game started with \(dealer.deck.maximumCards) cards, and \(characters.count) characters: ")
-        for character in characters {
-            ui.display("--- \(character.name)")
+        ui.display("Card distribution ...")
+        // dealer returns array of players which have cards in hands
+        dealer.distribute (players: players) { newPlayers in
+            self.players = newPlayers
+
+            for player in self.players {
+                self.ui.display("--- \(player.name) has actually \(player.cardsInHands.count) cards")
+            }
         }
-        distributeCards()
     }
 
-    private func distributeCards () {
-        dealer.distribute()
+    func quitGame() {
+        endOfGame = true
+        ui.display("\n##############")
+        ui.display("Game finished")
+        if dealer.readyToPlay, let winner = players.filter({ $0.cardsInHands.isEmpty == true }).first {
+            ui.display("--- And the winner is \(winner.name) !")
+        }
     }
 }
