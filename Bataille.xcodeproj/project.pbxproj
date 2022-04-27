@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		E91687F828168379006020F7 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91687F728168379006020F7 /* main.swift */; };
-		E91687FF2816839C006020F7 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91687FE2816839C006020F7 /* Character.swift */; };
+		E91687FF2816839C006020F7 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91687FE2816839C006020F7 /* Player.swift */; };
 		E9168801281683B3006020F7 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9168800281683B3006020F7 /* Game.swift */; };
 		E9168803281683C5006020F7 /* Console.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9168802281683C5006020F7 /* Console.swift */; };
 		E9168805281687E9006020F7 /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9168804281687E9006020F7 /* Dealer.swift */; };
 		E916880A28168B25006020F7 /* DealerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916880928168B25006020F7 /* DealerProtocol.swift */; };
 		E916880C28168B39006020F7 /* GameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916880B28168B39006020F7 /* GameProtocol.swift */; };
-		E916880E28168B4E006020F7 /* CharacterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916880D28168B4E006020F7 /* CharacterProtocol.swift */; };
+		E916880E28168B4E006020F7 /* PlayerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916880D28168B4E006020F7 /* PlayerProtocol.swift */; };
 		E916881028168BA8006020F7 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916880F28168BA8006020F7 /* Deck.swift */; };
 		E916881228168BB5006020F7 /* DeckProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916881128168BB5006020F7 /* DeckProtocol.swift */; };
 		E916881428168DAA006020F7 /* CardProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916881328168DAA006020F7 /* CardProtocol.swift */; };
@@ -37,13 +37,13 @@
 /* Begin PBXFileReference section */
 		E91687F428168379006020F7 /* Bataille */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Bataille; sourceTree = BUILT_PRODUCTS_DIR; };
 		E91687F728168379006020F7 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		E91687FE2816839C006020F7 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		E91687FE2816839C006020F7 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		E9168800281683B3006020F7 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		E9168802281683C5006020F7 /* Console.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Console.swift; sourceTree = "<group>"; };
 		E9168804281687E9006020F7 /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
 		E916880928168B25006020F7 /* DealerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealerProtocol.swift; sourceTree = "<group>"; };
 		E916880B28168B39006020F7 /* GameProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProtocol.swift; sourceTree = "<group>"; };
-		E916880D28168B4E006020F7 /* CharacterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterProtocol.swift; sourceTree = "<group>"; };
+		E916880D28168B4E006020F7 /* PlayerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerProtocol.swift; sourceTree = "<group>"; };
 		E916880F28168BA8006020F7 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		E916881128168BB5006020F7 /* DeckProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckProtocol.swift; sourceTree = "<group>"; };
 		E916881328168DAA006020F7 /* CardProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardProtocol.swift; sourceTree = "<group>"; };
@@ -84,7 +84,7 @@
 				E916880828168B17006020F7 /* Protocol */,
 				E916880628168AF7006020F7 /* UI */,
 				E91687F728168379006020F7 /* main.swift */,
-				E91687FE2816839C006020F7 /* Character.swift */,
+				E91687FE2816839C006020F7 /* Player.swift */,
 				E9168800281683B3006020F7 /* Game.swift */,
 				E9168804281687E9006020F7 /* Dealer.swift */,
 				E916880F28168BA8006020F7 /* Deck.swift */,
@@ -106,7 +106,7 @@
 			children = (
 				E916880928168B25006020F7 /* DealerProtocol.swift */,
 				E916880B28168B39006020F7 /* GameProtocol.swift */,
-				E916880D28168B4E006020F7 /* CharacterProtocol.swift */,
+				E916880D28168B4E006020F7 /* PlayerProtocol.swift */,
 				E916881128168BB5006020F7 /* DeckProtocol.swift */,
 				E916881328168DAA006020F7 /* CardProtocol.swift */,
 				E916881728169131006020F7 /* UIProtocol.swift */,
@@ -177,10 +177,10 @@
 				E916881228168BB5006020F7 /* DeckProtocol.swift in Sources */,
 				E916880A28168B25006020F7 /* DealerProtocol.swift in Sources */,
 				E916881828169131006020F7 /* UIProtocol.swift in Sources */,
-				E916880E28168B4E006020F7 /* CharacterProtocol.swift in Sources */,
+				E916880E28168B4E006020F7 /* PlayerProtocol.swift in Sources */,
 				E91687F828168379006020F7 /* main.swift in Sources */,
 				E9168801281683B3006020F7 /* Game.swift in Sources */,
-				E91687FF2816839C006020F7 /* Character.swift in Sources */,
+				E91687FF2816839C006020F7 /* Player.swift in Sources */,
 				E9168805281687E9006020F7 /* Dealer.swift in Sources */,
 				E9168803281683C5006020F7 /* Console.swift in Sources */,
 				E916881428168DAA006020F7 /* CardProtocol.swift in Sources */,
