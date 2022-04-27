@@ -8,9 +8,16 @@
 import Foundation
 
 protocol GameProtocol {
+
     var endOfGame: Bool { get set }
     var ui : UIProtocol { get }
     var dealer: DealerProtocol { get set }
-    var characters: [CharacterProtocol] { get set }
+    var players: [PlayerProtocol] { get set }
+
+    func listPlayers ()
     func start()
+    func initPlayers (_ numberOfPlayers: Int)
+    func distributeCards ()
+    func checkWinnerExists ()
+    func quitGame ()
 }

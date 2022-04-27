@@ -9,6 +9,10 @@ import Foundation
 
 protocol DealerProtocol {
 
+    var readyToPlay: Bool { get set }
     var deck: DeckProtocol { get set }
-    func distribute ()
+    var round: Int { get set }
+    
+    func nextRound ()
+    func distribute (players: [PlayerProtocol], complete: @escaping ([PlayerProtocol]) -> ())
 }

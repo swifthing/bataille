@@ -7,8 +7,9 @@
 
 import Foundation
 
-public protocol UIProtocol {
-
+protocol UIProtocol {
     func display (_ text: String)
     func input () -> String
+    func options (_ options: [String]) -> Int
+    func list (_ array: [String])
 }

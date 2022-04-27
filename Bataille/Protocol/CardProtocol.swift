@@ -8,5 +8,10 @@
 import Foundation
 
 protocol CardProtocol {
-    var name: String { get set }
+    var rank: Rank { get set }
+    var suit: Suit { get set }
+    var description: String { get }
+
+    static func getAllRanks () -> [Rank]
+    static func getAllSuits () -> [Suit]
 }

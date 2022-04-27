@@ -8,7 +8,9 @@
 import Foundation
 
 protocol DeckProtocol {
-    var maximumCards: Int { get }
     var availableCards: [CardProtocol] { get }
     var distributedCards: [CardProtocol] { get }
+    func initDeck ()
+    func popCard () -> CardProtocol?
+    func handlePickedCard (_ card: CardProtocol)
 }
